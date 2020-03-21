@@ -1,6 +1,5 @@
 package ru.liga.intership.badcode.service;
 
-
 import ru.liga.intership.badcode.domain.Person;
 
 import java.sql.Connection;
