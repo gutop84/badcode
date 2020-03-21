@@ -17,15 +17,6 @@ public class Person {
         this.height = height;
     }
 
-    public Person() {
-        this.id = 0L;
-        this.sex = "";
-        this.name = "";
-        this.age = 0L;
-        this.weight = 0L;
-        this.height = 0L;
-    }
-
     public Long getId() {
         return id;
     }

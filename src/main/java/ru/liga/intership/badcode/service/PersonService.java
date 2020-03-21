@@ -45,14 +45,14 @@ public class PersonService {
 
     public double getSelectedPersonsAverageBMI() {
         double totalImt = 0.0;
-        long countOfPerson = 1;
-        for (Person p : sqlResultList) {
-            double heightInMeters = p.getHeight() / 100d;
-            double imt = p.getWeight() / (Double) (heightInMeters * heightInMeters);
-            totalImt += imt;
-        }
-        if (sqlResultList.size() != 0)
-            countOfPerson = sqlResultList.size();
-        return totalImt/countOfPerson;
+        for (Person p : sqlResultList)
+            totalImt += getOnePersonBMI(p);
+        long countOfPerson = (sqlResultList.size() != 0) ? sqlResultList.size() : 1;
+        return totalImt / countOfPerson;
+    }
+
+    private double getOnePersonBMI(Person p) {
+        double heightInMeters = p.getHeight() / 100d;
+        return p.getWeight() / (Double) (heightInMeters * heightInMeters);
     }
 }

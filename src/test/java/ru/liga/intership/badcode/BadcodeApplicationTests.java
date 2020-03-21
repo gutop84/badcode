@@ -63,7 +63,6 @@ public class BadcodeApplicationTests {
     public void methodMainTest() {
         personService.connectToDataBase("jdbc:hsqldb:mem:test", "sa", "");
         personService.doQuery("SELECT * FROM person WHERE sex = 'male' AND age > 18");
-
         Assertions.assertThat(personService.getSelectedPersonsAverageBMI()).isEqualTo(25.774209960992707d);
     }
 
@@ -71,8 +70,6 @@ public class BadcodeApplicationTests {
     public void zeroPersonTest() {
         personService.connectToDataBase("jdbc:hsqldb:mem:test", "sa", "");
         personService.doQuery("SELECT * FROM person WHERE sex = 'male' AND age > 1800");
-
         Assertions.assertThat(personService.getSelectedPersonsAverageBMI()).isEqualTo(0);
     }
-
 }
