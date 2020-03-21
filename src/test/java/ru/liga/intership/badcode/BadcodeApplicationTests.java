@@ -72,4 +72,9 @@ public class BadcodeApplicationTests {
         personService.doQuery("SELECT * FROM person WHERE sex = 'male' AND age > 1800");
         Assertions.assertThat(personService.getSelectedPersonsAverageBMI()).isEqualTo(0);
     }
+
+    @Test
+    public void averageBMI_BeforeInitTest() {
+        Assertions.assertThatThrownBy(()->personService.getSelectedPersonsAverageBMI());
+    }
 }
