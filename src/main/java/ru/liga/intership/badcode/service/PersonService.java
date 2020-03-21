@@ -20,6 +20,7 @@ public class PersonService {
             statement = conn.createStatement();
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 
@@ -38,10 +39,11 @@ public class PersonService {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 
-    public void getSelectedPersonsAverageBMI() {
+    public double getSelectedPersonsAverageBMI() {
         double totalImt = 0.0;
         long countOfPerson = 1;
         for (Person p : sqlResultList) {
@@ -51,6 +53,6 @@ public class PersonService {
         }
         if (sqlResultList.size() != 0)
             countOfPerson = sqlResultList.size();
-        System.out.println("Average imt - " + totalImt / countOfPerson);
+        return totalImt/countOfPerson;
     }
 }

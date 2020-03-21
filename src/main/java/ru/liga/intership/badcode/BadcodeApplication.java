@@ -12,6 +12,6 @@ public class BadcodeApplication {
 		PersonService personService = new PersonService();
 		personService.connectToDataBase("jdbc:hsqldb:mem:test", "sa", "");
 		personService.doQuery("SELECT * FROM person WHERE sex = 'male' AND age > 18");
-		personService.getSelectedPersonsAverageBMI();
+		System.out.println("Average imt - " + personService.getSelectedPersonsAverageBMI());
 	}
 }
