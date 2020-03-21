@@ -10,6 +10,8 @@ public class BadcodeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BadcodeApplication.class, args);
 		PersonService personService = new PersonService();
-		personService.getAdultMaleUsersAverageBMI();
+		personService.connectToDataBase("jdbc:hsqldb:mem:test", "sa", "");
+		personService.doQuery("SELECT * FROM person WHERE sex = 'male' AND age > 18");
+		personService.getSelectedPersonsAverageBMI();
 	}
 }
